@@ -167,7 +167,7 @@ const section5 = {
                 <div className='text-start text-dark fw-bold fs-5'>Discord Bot from Scratch - With Python and Discord API</div>
             </Col>
             <Col md={12}>
-                <a class="text-start fs-6 fw-light" href="#" target="_blank" rel="noreferrer">View Project Code</a>
+                <a class="text-start fs-6 fw-light" href="https://drive.google.com/file/d/1oMm-h_2fMEJH6HTGgf22FCxaCVvynMVI/view" target="_blank" rel="noreferrer">View Project Code</a>
             </Col>
         </Row>
         <Row>
