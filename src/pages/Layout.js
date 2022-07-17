@@ -1,25 +1,38 @@
-import { Container } from "react-bootstrap";
+import { Container, OverlayTrigger } from "react-bootstrap";
+import Tooltip from 'react-bootstrap/Tooltip';
 import Nav from "react-bootstrap/Nav";
 import { Outlet, Link } from "react-router-dom";
 
 
+function ParseLayout (props) {
+    const renderTooltip = (props2) => (
+        <Tooltip id="button-tooltip" {...props2}>
+          {props.data.title}
+        </Tooltip>
+      );
+    return (
+    <Nav.Item>
+        <OverlayTrigger placement="bottom" overlay={renderTooltip} delay={{ show: 100, hide: 100 }}>
+            <Nav.Link as={Link} to={props.data.route} eventKey={props.data.eventkey}>{props.data.title}</Nav.Link>
+        </OverlayTrigger>
+    </Nav.Item>
+    );
+}
+
+
 function Layout() {
+    const dataHome = {title: "Home", route: "/", eventkey: "/"};
+    const dataPortfolio = {title: "Portfolio", route: "/portfolio", eventkey: "link-1"};
+    const dataResume = {title: "Resume", route: "/resume", eventkey: "link-2"};
+    const dataContact = {title: "Contact", route: "/contact", eventkey: "link-3"}
     return (
         <>
             <Container fluid className="bg-secondary bg-opacity-10">
                 <Nav fill variant="pills" defaultActiveKey="/" className="justify-content-around">
-                    <Nav.Item>
-                        <Nav.Link as={ Link } to="/" eventKey="/">Home</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link as={ Link } to="/portfolio" eventKey="link-1">Portfolio</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link as={ Link } to="/resume" eventKey="link-2">Resume</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link as={ Link } to="/contact" eventKey="link-3">Contact Me</Nav.Link>
-                    </Nav.Item>
+                    <ParseLayout data={dataHome} />
+                    <ParseLayout data={dataPortfolio} />
+                    <ParseLayout data={dataResume} />
+                    <ParseLayout data={dataContact} />
             </Nav>
         </Container>
         <Outlet />
