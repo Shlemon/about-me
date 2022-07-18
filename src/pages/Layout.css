@@ -1,7 +1,7 @@
 .nav-item:hover {
-    background-color: rgb(179,229,255);
+    background-color: rgb(8, 169, 249);
 }
 
 .nav-item:active {
-    background-color: rgb(179,229,255);
+    background-color: rgb(8, 169, 249);
 }

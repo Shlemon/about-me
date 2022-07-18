@@ -55,23 +55,23 @@ function Home() {
         <>
             <CarouselFade />
             <Container fluid>
-                <Row className="my-5">
-                    <Col md={12} className="text-center">
+                <Row className="mt-5">
+                    <Col md={12} className="text-center mt-5">
                         <h2 className="mb-2">Portfolio</h2>
                         <h5 className="fw-light">Some projects from my portfolio</h5>
                     </Col>
                 </Row>
-            <Row>
-                <Col md={4} className="text-center border">
-                    <CardTemplate info={cardInfo1} />
-                </Col>
-                <Col md={4} className="text-center border">
-                    <CardTemplate info={cardInfo2} />
-                </Col>
-                <Col md={4} className="text-center border">
-                    <CardTemplate info={cardInfo3} />
-                </Col>
-            </Row>
+                <Row className="mt-3 mx-5">
+                    <Col md={4} className="text-center">
+                        <CardTemplate info={cardInfo1} />
+                    </Col>
+                    <Col md={4} className="text-center">
+                        <CardTemplate info={cardInfo2} />
+                    </Col>
+                    <Col md={4} className="text-center">
+                        <CardTemplate info={cardInfo3} />
+                    </Col>
+                </Row>
             </Container>
         </>
     );

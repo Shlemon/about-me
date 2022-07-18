@@ -25,10 +25,10 @@ function Layout() {
     const dataHome = {title: "Home", route: "/", eventkey: "/"};
     const dataPortfolio = {title: "Portfolio", route: "/portfolio", eventkey: "link-1"};
     const dataResume = {title: "Resume", route: "/resume", eventkey: "link-2"};
-    const dataContact = {title: "Contact", route: "/contact", eventkey: "link-3"}
+    const dataContact = {title: "Contact Me", route: "/contact", eventkey: "link-3"}
     return (
         <>
-        <Container fluid className="bg-primary bg-opacity-80">
+        <Container fluid className="bg-opacity-80" style={{background: "rgb(8, 169, 249"}}>
             <Row className="mx-3 p-2">
                 <Col md={8}>
                     <h2 className="text-white my-2">About Me</h2>
