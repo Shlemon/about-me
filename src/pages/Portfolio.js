@@ -1,22 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import CardTemplate from '../components/card-template/CardTemplate';
 
 
-function CardTemplate(props) {
-    return (
-    <Card className="my-3 bg-light bg-opacity-10">
-        <Card.Img variant="top" src={props.info.img} style={ {height: "400px"} }/>
-        <Card.Body>
-            <Card.Title>{ props.info.title }</Card.Title>
-            <Card.Text>{ props.info.text }</Card.Text>
-            <Button variant="primary">{ props.info.buttontext }</Button>
-        </Card.Body>
-    </Card>
-    );
-}
 
 const Portfolio = () => {
     const cardInfo1 = {title: "Discord Bot",

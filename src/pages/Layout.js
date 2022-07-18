@@ -1,8 +1,9 @@
-import { Container, OverlayTrigger } from "react-bootstrap";
-import Tooltip from 'react-bootstrap/Tooltip';
-import Nav from "react-bootstrap/Nav";
+import { Container, OverlayTrigger, Row, Col, Tooltip, Nav, Navbar } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
+import './Layout.css';
 
+// fix click effect. the color must stay rgb(179,229,255)
+// when Nav.Link is clicked
 
 function ParseLayout (props) {
     const renderTooltip = (props2) => (
@@ -13,7 +14,7 @@ function ParseLayout (props) {
     return (
     <Nav.Item>
         <OverlayTrigger placement="bottom" overlay={renderTooltip} delay={{ show: 100, hide: 100 }}>
-            <Nav.Link as={Link} to={props.data.route} eventKey={props.data.eventkey}>{props.data.title}</Nav.Link>
+            <Nav.Link as={Link} to={props.data.route} eventKey={props.data.eventkey} className="text-white fs-5">{props.data.title}</Nav.Link>
         </OverlayTrigger>
     </Nav.Item>
     );
@@ -27,13 +28,25 @@ function Layout() {
     const dataContact = {title: "Contact", route: "/contact", eventkey: "link-3"}
     return (
         <>
-            <Container fluid className="bg-secondary bg-opacity-10">
-                <Nav fill variant="pills" defaultActiveKey="/" className="justify-content-around">
-                    <ParseLayout data={dataHome} />
-                    <ParseLayout data={dataPortfolio} />
-                    <ParseLayout data={dataResume} />
-                    <ParseLayout data={dataContact} />
-            </Nav>
+        <Container fluid className="bg-primary bg-opacity-80">
+            <Row className="mx-3 p-2">
+                <Col md={8}>
+                    <h2 className="text-white my-2">About Me</h2>
+                </Col>
+                <Col md={4}>
+                    <Navbar expand="lg">
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav variant="pills" defaultActiveKey="/" className="gap-5">
+                                <ParseLayout data={dataHome} />
+                                <ParseLayout data={dataPortfolio} />
+                                <ParseLayout data={dataResume} />
+                                <ParseLayout data={dataContact} />
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
+                </Col>
+            </Row>
         </Container>
         <Outlet />
         </>
