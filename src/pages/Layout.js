@@ -1,4 +1,4 @@
-import { Container, OverlayTrigger, Row, Col, Tooltip, Nav, Navbar } from "react-bootstrap";
+import { Container, OverlayTrigger, Tooltip, Nav, Navbar } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
 import './Layout.css';
 
@@ -29,24 +29,18 @@ function Layout() {
     return (
         <>
         <Container fluid className="bg-opacity-80" style={{background: "rgb(8, 169, 249"}}>
-            <Row className="mx-3 p-2">
-                <Col md={8}>
-                    <h2 className="text-white my-2">About Me</h2>
-                </Col>
-                <Col md={4}>
-                    <Navbar expand="lg">
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav variant="pills" defaultActiveKey="/" className="gap-5">
-                                <ParseLayout data={dataHome} />
-                                <ParseLayout data={dataPortfolio} />
-                                <ParseLayout data={dataResume} />
-                                <ParseLayout data={dataContact} />
-                            </Nav>
-                        </Navbar.Collapse>
-                    </Navbar>
-                </Col>
-            </Row>
+            <Navbar expand="lg">
+                <Navbar.Brand className="text-white fs-2">About Me</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav variant="pills" defaultActiveKey="/" className="gap-5 mx-5 justify-content-end" style={{width: "100%"}}>
+                        <ParseLayout data={dataHome} />
+                        <ParseLayout data={dataPortfolio} />
+                        <ParseLayout data={dataResume} />
+                        <ParseLayout data={dataContact} />
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         </Container>
         <Outlet />
         </>
