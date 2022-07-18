@@ -1,7 +1,18 @@
-.nav-item:hover {
+.nav-item {
     background-color: rgb(8, 169, 249);
+    border-color: rgb(8, 169, 249);
+}
+
+.nav-item:hover {
+    background-color: rgb(13, 110, 253);
+    border-color: rgb(13, 110, 253);
+}
+
+.nav-item:focus {
+    background-color: rgb(13, 110, 253);
 }
 
 .nav-item:active {
-    background-color: rgb(8, 169, 249);
+    background-color: rgb(13, 110, 253);
+    border-color: rgb(13, 110, 253);
 }
