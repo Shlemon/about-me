@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 
 export default function CardTemplate(props) {
     return (
-    <Card className="my-3 bg-light bg-opacity-10" style={{height: "100%"}}>
+    <Card className="my-3 bg-light bg-opacity-10" style={{height: '100%'}}>
         <Card.Img variant="top" src={props.info.img} style={ {height: "400px"} }/>
         <Card.Body>
             <Card.Title className="text-center">{ props.info.title }</Card.Title>

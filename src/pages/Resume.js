@@ -3,17 +3,24 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
 
+import './Resume.css';
+
+
+// Make Resume Sections Responsive.
+// Title of Sections keep breaking
+
 function TitleSection(props) {
     return(
         <Container className="bg-primary p-2 my-5">
             <Row className="mx-3">
-                <Col md={3} className="fw-bold text-light">
-                    <h1>Shlemon Namrod</h1>
+                <Col className="fw-bold text-light text-start">
+                    <h1>Shlemon</h1>
+                    <h1>Namrod</h1>
                 </Col>
-                <Col md={9} className="text-end fw-bold text-light my-2">
-                    <h6>shlemon.namrod@yahoo.com</h6>
+                <Col className="text-end fw-bold text-light">
+                    <h6 className='mt-3 mb-2'>shlemon.namrod@yahoo.com</h6>
                     <h6>(+964)123-456-7890</h6>
-                    <h6>Duhok, Duhok 42001</h6>
+                    <h6 className='mb-3 mt-2'>Duhok, Duhok 42001</h6>
                 </Col>
             </Row>
         </Container>
@@ -24,10 +31,9 @@ function BodySection(props) {
     return (
         <Container>
             <Row className="mx-5 p-5">
-                <Col md={2} className="text-end text-primary fs-4">{props.data.name}</Col>
-                <Col md={10}>
+                <Col xl={2} className="text-end text-primary fs-4" id='xlCol'>{props.data.name}</Col>
+                <Col xl={10} className="">
                     <Stack direction="horizontal" bsPrefix="hstack" gap={3}>
-                        <div className="vr"></div>
                         <div className="text-start text-dark fs-6">{props.data.content}</div>
                     </Stack>
                 </Col>
@@ -79,18 +85,18 @@ const section3 = {
     name: "Experience",
     content: <Container>
         <Row>
-            <Col md={12}>
+            <Col lg={12}>
                 <Stack direction="horizontal" gap={3} bsPrefix="hstack">
                     <div className="text-end fw-bold fs-5">Manager</div>
                     <div className="vr"></div>
                     <div className="text-start fs-6 fw-light">08/2021 to 11/2021</div>
                 </Stack>
             </Col>
-            <Col md={12}>
+            <Col lg={12}>
                 <p className='text-start fs-6 fw-bold'>Flex Sport Center - Duhok, Duhok</p>
             </Col>
-            <Col md={12}>
-                <ul className='text-start fs-6 fw-normal'>
+            <Col lg={12}>
+                <ul className='text-start fs-6 fw-normal' id='experienceLst'>
                     <li>Registering Costumers and making cash registers</li>
                     <li>Ensure good warehousing practices.</li>
                     <li>Responsible for the store supplies.</li>
@@ -107,50 +113,50 @@ const section4 = {
     name: "Education and Training",
     content: <Container>
         <Row className='mb-5'>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start text-dark fw-bold fs-5'>Duhok Polytechnic University - Duhok, Kurdistan, Iraq</div>
             </Col>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start text-dark fw-bold fs-6'>Bachelor of Science</div>
             </Col>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start fw-light fs-6'>Information Technology Management, <label className='fw-normal fs-6'>05/2021</label></div>
             </Col>
         </Row>
         <Row className='mb-5'>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start text-dark fw-bold fs-5'>Ovanya - Erbil, Kurdistan, Iraq</div>
             </Col>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start text-dark fw-bold fs-6'>Certificate of Completion</div>
             </Col>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start fw-light fs-6'>
                     <a href="https://ovanya.com/accomplishments/certificates/94958271" target="_blank" rel="noreferrer">Data Science and AI Traineeship
                     </a>, <label className='fw-normal fs-6'>05/2022</label></div>
             </Col>
         </Row>
         <Row className='mb-5'>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start text-dark fw-bold fs-5'>Udemy - Online</div>
             </Col>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start text-dark fw-bold fs-6'>Certificate of Completion</div>
             </Col>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start fw-light fs-6'>
                     <a href="https://drive.google.com/file/d/1IIl6NHPp26rvFwtMDYW6WDXJQ8ODdaIH/view" target="_blank" rel="noreferrer">Computer Vision Bootcamp with Python
                     </a>, <label className='fw-normal fs-6'>12/2021</label></div>
             </Col>
         </Row>
         <Row>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start text-dark fw-bold fs-5'>Udemy - Online</div>
             </Col>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start text-dark fw-bold fs-6'>Certificate of Completion</div>
             </Col>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start fw-light fs-6'>
                     <a href="https://drive.google.com/file/d/1oMm-h_2fMEJH6HTGgf22FCxaCVvynMVI/view" target="_blank" rel="noreferrer">365 Carrer's Complete Data Science Bootcamp
                     </a>, <label className='fw-normal fs-6'>01/2022</label></div>
@@ -160,18 +166,18 @@ const section4 = {
 }
 
 const section5 = {
-    name: "Accomplishments",
+    name: "Achievements",
     content: <Container>
         <Row className='mb-2'>
-            <Col md={12}>
+            <Col lg={12}>
                 <div className='text-start text-dark fw-bold fs-5'>Discord Bot from Scratch - With Python and Discord API</div>
             </Col>
-            <Col md={12}>
+            <Col lg={12}>
                 <a class="text-start fs-6 fw-light" href="https://drive.google.com/file/d/1oMm-h_2fMEJH6HTGgf22FCxaCVvynMVI/view" target="_blank" rel="noreferrer">View Project Code</a>
             </Col>
         </Row>
         <Row>
-            <Col md={12}>
+            <Col lg={12}>
                 <ul>
                 <li>Used Discord API to integrate chat and voice services</li>
                 <li>The bot runs without wait time (running multiple functions at the same time) by 

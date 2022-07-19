@@ -1,0 +1,18 @@
+#xlCol {
+    border-right: 1px solid gray;
+}
+
+@media (max-width: 1200px) {
+    #xlCol {
+        border-right: none;
+        border-bottom: 1px solid gray;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .col-lg-12 {
+        display: flex;
+        justify-content: center;
+    }
+}

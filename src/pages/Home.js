@@ -21,7 +21,7 @@ function CarouselFade() {
                 />
                 <Carousel.Caption>
                     <Button className="my-5" variant="outline-info">My AI Projects</Button>
-                    <h3>AI Engineer</h3>
+                    <h3>AI Practitioner</h3>
                     <p>View My Projects with Data Science & AI Modeling</p>
                 </Carousel.Caption>
             </Carousel.Item>
@@ -35,7 +35,7 @@ function CarouselFade() {
 
                 <Carousel.Caption>
                     <Button className="my-5" variant="outline-primary">My Front End Projects</Button>
-                    <h3>Front End Dev</h3>
+                    <h3>Front End Developer</h3>
                     <p>View My Front End Web Development Projects</p>
                 </Carousel.Caption>
             </Carousel.Item>
