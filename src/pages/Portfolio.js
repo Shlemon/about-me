@@ -14,11 +14,11 @@ const Portfolio = () => {
                        text: "Some quick example text to build on the card title and make up the bulk of the card's content.", 
                        buttontext: "View Source Code"};
     const cardInfo2 = {title: "Cheat Prevention App",
-                       img: deepdream_img,
+                       img: od_img,
                        text: "Some quick example text to build on the card title and make up the bulk of the card's content.", 
                        buttontext: "View Project"};
     const cardInfo3 = {title: "DeepDream Generator",
-                       img: od_img,
+                       img: deepdream_img,
                        text: "DeepDream Generator produces hallucination-like visuals by maximizing the activations of `mixed` layers of InceptionV3 neural network.", 
                        buttontext: "View Project"};
     return (
