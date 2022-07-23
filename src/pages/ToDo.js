@@ -1,14 +1,19 @@
-import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap'
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import React from 'react';
-import Task from '../components/task/Task';
+import './ToDo.css';
+import { TaskContext, FinishedTaskContext } from '../components/todo-context/TaskContext';
+import { Task, FinishedTask } from '../components/task/Task';
 import ApiGenerator from '../components/api-generator/ApiGenerator';
-// import SearchBar from '../components/search-bar/SearchBar';
+import SearchBar from '../components/search-bar/SearchBar';
 
-
-const TaskContext = React.createContext();
 
 function MainLayout() {
     const [tasks, setTasks] = React.useState([]);
+    const [finished, setFinished] = React.useState([]);
+
+    const toggleMode = () => {
+        // Add dark/light mode
+    }
 
     return(
         <Container className='my-5'>
@@ -21,8 +26,14 @@ function MainLayout() {
             <Card className='mx-5 my-5'>
                 <Card.Header className='bg-white'>
                     <Row className='mt-2 mb-4'>
-                        <Col className='text-start mx-5'>Button</Col>
-                        <Col className='text-end mx-5 fs-2 fw-light'>Chores</Col>
+                        <Col lg className='text-start mx-5'>
+                            <Button onClick={toggleMode} className='w-25 h-100' variant="outline-secondary bg-secondary.bg-gradient">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                                </svg>
+                            </Button>
+                        </Col>
+                        <Col lg className='text-end mx-5 fs-2 fw-light' id='chores-id'>Chores</Col>
                     </Row>
                     <Row className='mx-5 mb-2'>
                         <Col className='text-center'>
@@ -42,7 +53,11 @@ function MainLayout() {
                             tasks.map(function(taskName, taskIndex)
                             {
                                 return(
-                                    <Task task={taskName}/>
+                                    <TaskContext.Provider value={[tasks, setTasks]}>
+                                        <FinishedTaskContext.Provider value={[finished, setFinished]}>
+                                            <Task taskN={{name: taskName, index: (taskIndex+'a')}}/>
+                                        </FinishedTaskContext.Provider>
+                                    </TaskContext.Provider>
                                 );
                             })
                         }
@@ -52,37 +67,18 @@ function MainLayout() {
                 <Card.Footer className='mx-5 bg-white '>
                     <Card.Title className='fw-light'>Completed</Card.Title>
                     <Card.Text className='text-center'>
-                        Completed tasks list
+                        {
+                            finished.map(function(taskName, taskIndex)
+                            {
+                                return(
+                                    <FinishedTask taskN={{name: taskName, index: (taskIndex+'a')}}/>
+                                )
+                            })
+                        }
                     </Card.Text>
                 </Card.Footer>
             </Card>
         </Container>
-    );
-}
-
-
-function SearchBar(props) {
-    const [stateItem, setStateItem] = React.useContext(TaskContext);
-    const [temp, setTemp] = React.useState('');
-    
-    const handleInputChange = (tempItem) => setTemp(tempItem.target.value);
-    const onSubmit = () => {
-        setStateItem(oldItemList => [...oldItemList, temp]);
-        setTemp('');
-    }
-
-    return(
-        <Form>
-            <Row className='align-items-center rounded mx-1'>
-                <Col lg={10}>
-                    <Form.Label htmlFor='inlineFormInput' visuallyHidden>Name</Form.Label>
-                    <Form.Control value={temp} onChange={handleInputChange} type='text' className='mb-2 mt-3 bg-secondary bg-opacity-10' id='inlineFormInput' placeholder='Add item'></Form.Control>
-                </Col>
-                <Col lg={2}>
-                    <Button onClick={onSubmit} className='mb-2 mt-3' style={{height: '100%', width: '100%'}}>Add</Button>
-                </Col>
-            </Row>
-        </Form>
     );
 }
 
